@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dota2HeroStats", "Dota2HeroStats\Dota2HeroStats.csproj", "{99103270-13C2-4D31-9E6E-859E1909071F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dota2HeroStats.Tests", "Dota2HeroStats.Tests\Dota2HeroStats.Tests.csproj", "{D6D3C9A0-FED1-4ED4-ACD2-C596E0F2EE79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +15,11 @@ Global
 		{99103270-13C2-4D31-9E6E-859E1909071F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99103270-13C2-4D31-9E6E-859E1909071F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99103270-13C2-4D31-9E6E-859E1909071F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D6D3C9A0-FED1-4ED4-ACD2-C596E0F2EE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6D3C9A0-FED1-4ED4-ACD2-C596E0F2EE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6D3C9A0-FED1-4ED4-ACD2-C596E0F2EE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6D3C9A0-FED1-4ED4-ACD2-C596E0F2EE79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29993D2A-7454-4B8C-9816-2E867761AD62}
 	EndGlobalSection
 EndGlobal
