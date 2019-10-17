@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-sm-3 p-1">
+        <img class="img-fluid" [src]="hero?.getImage('large')">
+    </div>
+    <div class="col-sm-9">
+        <h2 [ngSwitch]="hero?.PrimaryAttr">
+            <img class="align-bottom" *ngSwitchCase="'str'" src="assets/img/Strength.png" alt="Strength"
+                title="Strength">
+            <img class="align-bottom" *ngSwitchCase="'agi'" src="assets/img/Agility.png" alt="Agility" title="Agility">
+            <img class="align-bottom" *ngSwitchCase="'int'" src="assets/img/Intelligence.png" alt="Intelligence"
+                title="Intelligence">
+            {{hero.LocalizedName}}
+            <span class="align-middle">{{hero.createRoleString()}}</span>
+        </h2>
+        <div class="footer-images p-1">
+            <span *ngFor="let ability of getHeroOriginalAbilities()">
+                <a [routerLink]="['/abilities', ability.AbilityId]">
+                    <img class="img-fluid ml-1" style="width:75px;height:75px" [src]="ability.getImage()"
+                        [alt]="ability.Name" [title]="ability.Name">
+                </a>
+            </span>
+        </div>
+    </div>
+
+</div>

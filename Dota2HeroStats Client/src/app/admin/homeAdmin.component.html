@@ -1,0 +1,47 @@
+<span *ngIf="(loggedIn) else login">
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-info mr-1" [routerLink]="['']">
+                Website Home
+            </button>
+            <a [href]="getLoginUrl()">
+                <button type="button" class="btn btn-secondary">
+                    Change login
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="row p-5">
+        <div class="col-3"></div>
+        <div class="col text-center">
+            <div class="mb-5">
+                <button type="button" class="btn btn-block btn-primary" [routerLink]="['/admin/heroes']">
+                    Heroes
+                </button>
+            </div>
+            <div class="mb-5">
+                <button type="button" class="btn btn-block btn-primary" [routerLink]="['/admin/abilities']">
+                    Abilities
+                </button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-block btn-primary" [routerLink]="['/admin/matches']">
+                    Matches
+                </button>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</span>
+<ng-template #login>
+    <div class="row">
+        <div class="col text-center">
+            <button>
+                <a [href]="getLoginUrl()">
+                    Log In
+                </a>
+            </button>
+        </div>
+    </div>
+
+</ng-template>

@@ -1,0 +1,51 @@
+<div class="row p-2 mt-1">
+    <div class="col">
+        <table class="mt-2 table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Hero
+                    </th>
+                    <th scope="col">
+                        Ability
+                    </th>
+                    <th scope="col">
+                        Matches
+                    </th>
+                    <th>
+                        Combination Win Rate
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pt-1" *ngFor="let item of getHeroAbilityStats()">
+                    <td>
+                        <div class="h3 text-left"> {{getHeroFromId(item.HeroId)?.LocalizedName}}</div>
+                        <a [routerLink]="['/heroes', item.HeroId]">
+                            <img class="rounded img-fluid mr-3 float-left" style="height: 80px; width: auto;"
+                                [src]="getHeroFromId(item?.HeroId)?.getImage('medium')"
+                                [alt]="getHeroFromId(item?.HeroId)?.LocalizedName"
+                                [title]="getHeroFromId(item?.HeroId)?.LocalizedName">
+                        </a>
+                    </td>
+                    <td>
+                        <div class="h3 text-left">{{getAbilityFromId(item.AbilityId)?.Name}}</div>
+                        <a [routerLink]="['/abilities', item.AbilityId]">
+                            <img class="rounded img-fluid mr-3 float-left" style="height: 80px; width: auto;"
+                                [src]="getAbilityFromId(item?.AbilityId)?.getImage()"
+                                [alt]="getAbilityFromId(item?.AbilityId)?.Name"
+                                [title]="getAbilityFromId(item?.AbilityId)?.Name">
+                        </a>
+                    </td>
+                    <td style="font-size:3rem" [d2-percentColorChanger]="getWinPercentage(item)">
+                        <span alt="Wins" title="Wins">{{ item?.Wins }}</span>/<span alt="Matches"
+                            title="Matches">{{item?.Matches}}</span>
+                    </td>
+                    <td style="font-size:3rem" [d2-percentColorChanger]="getWinPercentage(item)">
+                        {{getWinPercentage(item)}}%
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

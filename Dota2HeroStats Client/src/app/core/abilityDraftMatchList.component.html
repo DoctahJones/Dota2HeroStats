@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col">
+        <table class="mt-2 table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Match Id
+                    </th>
+                    <th scope="col">
+                        Radiant
+                    </th>
+                    <th scope="col">
+                        Dire
+                    </th>
+                    <th scope="col">
+                        Duration
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pt-1" *ngFor="let item of getMatches()">
+                    <td>
+                        <a [routerLink]="['/matches', item.MatchId]">
+                            {{item.MatchId}}
+                        </a>
+                    </td>
+                    <td>
+                        <span *ngFor="let hero of getMatchRadiantHeroes(item)">
+                            <a [routerLink]="['/heroes', hero.HeroId]">
+                                <img class="mr-1 mb-1" [src]="hero.getImage('small')" [alt]="hero.LocalizedName"
+                                    [title]="hero.LocalizedName">
+                            </a>
+                        </span>
+                    </td>
+                    <td>
+                        <span *ngFor="let hero of getMatchDireHeroes(item)">
+                            <a [routerLink]="['/heroes', hero.HeroId]">
+                                <img class="mr-1 mb-1" [src]="hero.getImage('small')" [alt]="hero.LocalizedName"
+                                    [title]="hero.LocalizedName">
+                            </a>
+                        </span>
+                    </td>
+                    <td>
+                        {{item.DurationSeconds | secondsToHoursMinutesSeconds }}
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

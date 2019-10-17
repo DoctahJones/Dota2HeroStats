@@ -1,0 +1,9 @@
+h2 span {
+    font-size: 1rem;
+}
+.footer-images {
+    margin: auto;
+    display: block;
+    position: absolute;
+    bottom: 0;
+}

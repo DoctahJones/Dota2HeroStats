@@ -1,0 +1,41 @@
+<div *ngIf="!matchNotFound" class="row">
+    <div class="col">
+        <div class="row mt-2 p-1 highlightBackground">
+            <div class="col ml-2">
+                <h2>{{match.MatchId}}</h2>
+
+            </div>
+            <div class="col-2">{{(match.StartTime * 1000) | date:'short' : 'en-gb'}} </div>
+            <div class="col-1">{{(match.DurationSeconds) | secondsToHoursMinutesSeconds}} </div>
+            <div class="col-1">{{getServerRegionFromCluster(match.ServerCluster)}} </div>
+            <div class="col-2">{{getPatchStringFromPatchNumber(match.PatchNumber)}} </div>
+            <div class="col-2">{{getSkillLevelFromNumber(match.SkillLevel)}} </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-3 h2 text-right colorRadiant">
+                {{match.RadiantKillScore}}
+            </div>
+            <div class="col h1 text-center" [d2-winningTeamColorChanger]="match.RadiantWin">
+                {{match.RadiantWin ? 'Radiant Wins' : 'Dire Wins'}}
+            </div>
+            <div class="col-3 h2 text-left colorDire">
+                {{match.DireKillScore}}
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-6">
+                <h2 class="text-center colorRadiant">Radiant</h2>
+                <d2AbilityDraftMatchTeam [players]="getRadiantPlayers()"></d2AbilityDraftMatchTeam>
+            </div>
+            <div class="col-6">
+                <h2 class="text-center colorDire">Dire</h2>
+                <d2AbilityDraftMatchTeam [players]="getDirePlayers()"></d2AbilityDraftMatchTeam>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" >
+    <div class="col" >
+        not found;
+    </div>
+</div>

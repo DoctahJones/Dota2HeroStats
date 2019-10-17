@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-info mr-1" [routerLink]="['/admin']">
+            Back
+        </button>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col text-center">
+        <table class="mt-2 table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Ability Id
+                    </th>
+                    <th scope="col">
+                        Name
+                    </th>
+                    <th scope="col">
+                        Img
+                    </th>
+                    <th scope="col">
+                        Is Ultimate
+                    </th>
+                    <th scope="col">
+                        Ability Owner
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pt-1" *ngFor="let item of getAbilities()" (click)="goToAbility(item.AbilityId)">
+                    <td>
+                        {{item.AbilityId}}
+                    </td>
+                    <td>
+                        {{item.Name}}
+                    </td>
+                    <td>
+                        {{item.Img}}
+                    </td>
+                    <td>
+                        {{item.IsUltimate}}
+                    </td>
+                    <td>
+                        {{item.OriginalAbilityOwnerId}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-info mr-1" [routerLink]="['/admin']">
+            Back
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col text-center">
+        <table class="mt-2 table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Match Id
+                    </th>
+                    <th scope="col">
+                        Duration
+                    </th>
+                    <th scope="col">
+                        Patch Number
+                    </th>
+                    <th scope="col">
+                        Skill Level
+                    </th>
+                    <th scope="col">
+                        Radiant Kills
+                    </th>
+                    <th scope="col">
+                        Dire Kills
+                    </th>
+                    <th scope="col">
+                        Radiant Won
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pt-1" *ngFor="let item of getMatches()" (click)="goToMatch(item.MatchId)">
+                    <td>
+                        {{item.MatchId}}
+                    </td>
+                    <td>
+                        {{item.DurationSeconds}}
+                    </td>
+                    <td>
+                        {{item.PatchNumber}}
+                    </td>
+                    <td>
+                        {{item.SkillLevel}}
+                    </td>
+                    <td>
+                        {{item.RadiantKillScore}}
+                    </td>
+                    <td>
+                        {{item.DireKillScore}}
+                    </td>
+                    <td>
+                        {{item.RadiantWin}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<d2HeroTable></d2HeroTable>
+
+<div *ngIf="(loaded && hero.HeroId != null) else problem">
+<d2Hero [hero]="hero"></d2Hero>
+
+<d2HeroAbilityStatList [hero]="hero"></d2HeroAbilityStatList>
+</div>
+<ng-template #problem>
+    <div class="row">
+        <div class="col text-center">
+                <div class="mt-5 h1">Could not find that hero.</div>
+                <div class="text-danger h2">{{errorMessage}}</div>
+        </div>
+    </div>
+    
+</ng-template>

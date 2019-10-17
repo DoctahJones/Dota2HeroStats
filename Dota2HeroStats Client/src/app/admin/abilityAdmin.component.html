@@ -1,0 +1,76 @@
+<div class="row mb-3">
+    <div class="col">
+        <button type="button" class="btn btn-info mr-1" [routerLink]="['/admin']">
+            Admin Home
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label class="h2">Ability ID: </label>
+                <input type="text" class="form-control-plaintext pl-2" [(ngModel)]="ability.AbilityId" name="abilityId"
+                    #abilityId="ngModel" pattern="^[0-9]+$" readonly required>
+            </div>
+            <div class="mt-2">
+                <label class="h2">Name: </label>
+                <input type="text" class="form-control" [(ngModel)]="ability.Name" name="name" #name="ngModel" required>
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                    Name is required
+                </div>
+            </div>
+            <div class="mt-2">
+                <label class="h2">Img filename: </label>
+                <input type="text" class="form-control" [(ngModel)]="ability.Img" name="img" #img="ngModel">
+                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                    Name is required
+                </div>
+            </div>
+            <div class="form-check mt-2">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="ability.IsUltimate" name="isUltimate"
+                    #ultimate="ngModel">
+                <label class="h2">Ultimate Ability?</label>
+            </div>
+            <div class="mt-2">
+                <label class="h2">Original Ability Owner Id: </label>
+                <input type="text" class="form-control" [(ngModel)]="ability.OriginalAbilityOwnerId"
+                    name="originalOwner" #originalOwner="ngModel" pattern="^[0-9]+$" required>
+                <div *ngIf="originalOwner.invalid && (originalOwner.dirty || originalOwner.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="originalOwner.errors.required">
+                        Original Ability Owner is required
+                    </div>
+                    <div *ngIf="originalOwner.errors.pattern">
+                        Original Ability Owner must be numbers only
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="h2" for="setOwner">Or Set Owner Id From Hero: </label>
+                <div class="input-group">
+                    <select class="custom-select" id="setOwner" name="setOwner" #owner>
+                        <option *ngFor="let hero of HeroList" [value]="hero">{{hero}}</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-secondary" (click)="setOwner(owner.value)">Set
+                            Owner</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!formSubmitted">
+                <button type=" submit" class="btn btn-primary mr-1 mt-2 mb-2" [disabled]="!f.valid">Save
+                    Changes</button>
+            </div>
+            <div *ngIf="formSubmitted">
+                <button class="btn btn-primary mr-1 mt-2 mb-2" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                    Updating...
+                </button>
+            </div>
+            <div *ngIf="submitError" class="alert alert-danger">
+                An Error occurred during submission.
+            </div>
+        </form>
+    </div>
+</div>

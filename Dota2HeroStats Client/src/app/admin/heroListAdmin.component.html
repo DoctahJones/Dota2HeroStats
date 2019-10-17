@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-info mr-1" [routerLink]="['/admin']">
+            Back
+        </button>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col text-center">
+        <table class="mt-2 table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Hero Id
+                    </th>
+                    <th scope="col">
+                        Name
+                    </th>
+                    <th scope="col">
+                        Localized Name
+                    </th>
+                    <th scope="col">
+                        Primary Attribute
+                    </th>
+                    <th scope="col">
+                        Attack Type
+                    </th>
+                    <th scope="col">
+                        Legs
+                    </th>
+                    <th scope="col">
+                        Roles
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pt-1" *ngFor="let item of getHeroes()" (click)="goToHero(item.HeroId)">
+                    <td>
+                        {{item.HeroId}}
+                    </td>
+                    <td>
+                        {{item.Name}}
+                    </td>
+                    <td>
+                        {{item.LocalizedName}}
+                    </td>
+                    <td>
+                        {{item.PrimaryAttr}}
+                    </td>
+                    <td>
+                        {{item.AttackType}}
+                    </td>
+                    <td>
+                        {{item.Legs}}
+                    </td>
+                    <td>
+                        {{item.Roles}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

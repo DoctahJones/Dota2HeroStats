@@ -1,0 +1,18 @@
+<div class="row justify-content-center m-2">
+    <div class="col-6 text-center">
+        <div class="input-group">
+            <input type="text" id="typeahead-basic" class="form-control" #searchValue
+                placeholder="Search heroes, abilities or match id" [ngbTypeahead]="searchDota"
+                (selectItem)="selectedItem($event)" (keydown.enter)="submitEnter($event)" />
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button"
+                    (click)="submitButton(searchValue.value)">Search</button>
+            </div>
+        </div>
+        <div *ngIf="searchErrorMessage != ''" class="alert alert-danger">
+            {{searchErrorMessage}}
+        </div>
+    </div>
+</div>
+
+<d2HeroTable></d2HeroTable>

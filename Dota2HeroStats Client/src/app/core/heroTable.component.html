@@ -1,0 +1,32 @@
+<div class="row mt-1">
+    <div class="rounded col-sm p-1" style="background:red">
+        <div class="text-center">
+            <span *ngFor="let item of getHeroes('str')">
+                <a [routerLink]="['/heroes', item.HeroId]">
+                    <img class="mr-1 mb-1" [src]="item.getImage('small')" [alt]="item.LocalizedName"
+                        [title]="item.LocalizedName">
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class="rounded col-sm p-1" style="background:green">
+        <div class="text-center">
+            <span *ngFor="let item of getHeroes('agi')">
+                <a [routerLink]="['/heroes', item.HeroId]">
+                    <img class="mr-1 mb-1" [src]="item.getImage('small')" [alt]="item.LocalizedName"
+                        [title]="item.LocalizedName">
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class="rounded col-sm p-1 " style="background:blue">
+        <div class="text-center">
+            <span *ngFor="let item of getHeroes('int')">
+                <a [routerLink]="['/heroes', item.HeroId]">
+                    <img class="mr-1 mb-1" [src]="item.getImage('small')" [alt]="item.LocalizedName"
+                        [title]="item.LocalizedName">
+                </a>
+            </span>
+        </div>
+    </div>
+</div>

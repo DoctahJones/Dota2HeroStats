@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-sm-2 p-1">
+        <img class="img-fluid" [src]="ability.getImage()">
+    </div>
+    <div class="col">
+        <div class="h2">
+            {{ability.Name}}
+        </div>
+        <div>
+            Ultimate Ability
+            <span [ngSwitch]="ability.IsUltimate">
+                <img *ngSwitchCase="true" src="assets/img/iconTick.png" style="width:24px;height:24px" alt="Tick"
+                    title="Tick">
+                <img class="align-bottom" *ngSwitchCase="false" src="assets/img/iconCross.png"
+                    style="width:24px;height:24px" alt="Cross" title="Cross">
+            </span>
+        </div>
+        <div>
+            Original Hero
+            <a [routerLink]="['/heroes', ability.OriginalAbilityOwnerId]">
+                <img class="img-fluid" [src]="getHeroFromId(ability.OriginalAbilityOwnerId)?.getImage('small')"
+                    [alt]="getHeroFromId(ability.OriginalAbilityOwnerId)?.LocalizedName"
+                    [title]="getHeroFromId(ability.OriginalAbilityOwnerId)?.LocalizedName">
+            </a>
+        </div>
+    </div>
+</div>

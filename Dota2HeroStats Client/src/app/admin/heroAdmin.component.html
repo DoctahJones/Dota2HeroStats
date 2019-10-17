@@ -1,0 +1,131 @@
+<div class="row mb-3">
+    <div class="col">
+        <button type="button" class="btn btn-info mr-1" [routerLink]="['/admin/heroes']">
+            Back To Heroes
+        </button>
+        <button type="button" class="btn btn-info mr-1" [routerLink]="['/admin']">
+            Admin Home
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class=col-6>
+                    <div class="mt-2">
+                        <label class="h2">Hero ID: </label>
+                        <input type="text" class="form-control-plaintext pl-2" [(ngModel)]="hero.HeroId" name="heroId"
+                            #heroId="ngModel" pattern="^[0-9]+$" readonly required>
+                        <div *ngIf="heroId.invalid && (heroId.dirty || heroId.touched)" class="alert alert-danger">
+                            <div *ngIf="heroId.errors.required">
+                                HeroID is required
+                            </div>
+                            <div *ngIf="heroId.errors.pattern">
+                                HeroID must be numbers only
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <label class="h2">Name: </label>
+                        <input type="text" class="form-control" [(ngModel)]="hero.Name" name="name" #name="ngModel"
+                            required>
+                        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                            Name is required
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <label class="h2">Localized Name: </label>
+                        <input type="text" class="form-control" [(ngModel)]="hero.LocalizedName" name="localizedName"
+                            #localizedName="ngModel" required>
+                        <div [hidden]="localizedName.valid || localizedName.pristine" class="alert alert-danger">
+                            Localized Name is required
+                        </div>
+                    </div>
+                    <div class="mt-2 form-group">
+                        <label class="h2" for="primaryAttr">Primary Attribute: </label>
+                        <select class="custom-select" id="primary Attr" [(ngModel)]="hero.PrimaryAttr"
+                            name="primaryAttr" required>
+                            <option value="str">str</option>
+                            <option value="agi">agi</option>
+                            <option value="int">int</option>
+                        </select>
+                    </div>
+                    <div class="mt-2 form-group">
+                        <label class="h2" for="attackType">Attack Type: </label>
+                        <select class="custom-select" id="attackType" [(ngModel)]="hero.AttackType" name="attackType"
+                            required>
+                            <option value="Ranged">Ranged</option>
+                            <option value="Melee">Melee</option>
+                        </select>
+                    </div>
+                    <div class="mt-2">
+                        <label class="h2">Legs Count: </label>
+                        <input type="text" class="form-control" [(ngModel)]="hero.Legs" name="legs" #legs="ngModel"
+                            pattern="^[0-9]+$" required>
+                        <div *ngIf="legs.invalid && (legs.dirty || legs.touched)" class="alert alert-danger">
+                            <div *ngIf="legs.errors.required">
+                                Legs count is required
+                            </div>
+                            <div *ngIf="legs.errors.pattern">
+                                Legs can only be a number
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=col-6>
+                    <div class="mt-3">
+                        <label class="h2 mr-3">Roles: </label>
+                        <label class="h3">{{hero.Roles}}</label>
+                    </div>
+                    <div class=" form-group">
+                        <label class="h2" for="addRole">Add Role: </label>
+                        <div class="input-group">
+                            <select class="custom-select" id="addRole" name="addRole" #add>
+                                <option *ngFor="let role of availableRoles" [value]="role">{{role}}</option>
+                            </select>
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary"
+                                    (click)="addRole(add.value)">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" form-group">
+                        <label class="h2" for="removeRole">Remove Role: </label>
+                        <div class="input-group">
+                            <select class="custom-select" id="removeRole" name="removeRole" #remove>
+                                <option *ngFor="let role of hero.Roles" [value]="role">{{role}}</option>
+                            </select>
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary"
+                                    (click)="removeRole(remove.value)">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="h2">Add New Role: </label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" #newRole>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button"
+                                    (click)="addNewRole(newRole.value); newRole.value=''">Add New Role</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!formSubmitted">
+                <button type=" submit" class="btn btn-primary mr-1 mt-2 mb-2" [disabled]="!f.valid">Save Changes</button>
+            </div>
+            <div *ngIf="formSubmitted">
+                <button class="btn btn-primary mr-1 mt-2 mb-2" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                    Updating...
+                </button>
+            </div>
+            <div *ngIf="submitError" class="alert alert-danger">
+                    An Error occurred during submission.
+            </div>
+        </form>
+    </div>
+</div>
