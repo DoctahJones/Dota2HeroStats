@@ -5,12 +5,12 @@ using System.Web;
 
 namespace Dota2HeroStats.Models
 {
-    public class Dota2HeroStatsDBInitializer : System.Data.Entity.CreateDatabaseIfNotExists<Dota2HeroStatsDB>
+    public partial class Dota2HeroStatsDBInitializer : System.Data.Entity.CreateDatabaseIfNotExists<Dota2HeroStatsDB>
     {
         protected override void Seed(Dota2HeroStatsDB context)
         {
-            //Todo set this admin line or disable ClaimsSteam
-            Admin admin = new Admin { SteamId = "" };
+           
+            Admin admin = new Admin { SteamId = AdminSteamId };
             context.Admins.Add(admin);
 
             var roleC = new Role { Name = "Carry" };

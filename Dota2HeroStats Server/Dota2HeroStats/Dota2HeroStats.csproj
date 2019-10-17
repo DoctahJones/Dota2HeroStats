@@ -453,6 +453,7 @@
       <DependentUpon>201910161350396_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Dota2HeroStatsDBInitializer.Admin.cs" />
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Services\DataSourceException.cs" />
     <Compile Include="Services\GameFetcher\APIRequest.cs" />
