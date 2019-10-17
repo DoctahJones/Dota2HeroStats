@@ -9,7 +9,7 @@ namespace Dota2HeroStats.Models
     {
         protected override void Seed(Dota2HeroStatsDB context)
         {
-           
+
             Admin admin = new Admin { SteamId = AdminSteamId };
             context.Admins.Add(admin);
 
@@ -41,10 +41,12 @@ namespace Dota2HeroStats.Models
                 AttackType = "Melee",
                 Legs = 2
             };
-            am.Roles = new HashSet<Role>();
-            am.Roles.Add(roleC);
-            am.Roles.Add(roleE);
-            am.Roles.Add(roleN);
+            am.Roles = new HashSet<Role>
+            {
+                roleC,
+                roleE,
+                roleN
+            };
             context.Heroes.Add(am);
 
             var abilityAMageA = new Ability
@@ -94,11 +96,13 @@ namespace Dota2HeroStats.Models
                 AttackType = "Melee",
                 Legs = 2
             };
-            axe.Roles = new HashSet<Role>();
-            axe.Roles.Add(roleI);
-            axe.Roles.Add(roleDu);
-            axe.Roles.Add(roleDi);
-            axe.Roles.Add(roleJ);
+            axe.Roles = new HashSet<Role>
+            {
+                roleI,
+                roleDu,
+                roleDi,
+                roleJ
+            };
             context.Heroes.Add(axe);
 
             var abilityAxeA = new Ability
@@ -148,11 +152,13 @@ namespace Dota2HeroStats.Models
                 AttackType = "Ranged",
                 Legs = 4
             };
-            bane.Roles = new HashSet<Role>();
-            bane.Roles.Add(roleS);
-            bane.Roles.Add(roleDu);
-            bane.Roles.Add(roleDi);
-            bane.Roles.Add(roleN);
+            bane.Roles = new HashSet<Role>
+            {
+                roleS,
+                roleDu,
+                roleDi,
+                roleN
+            };
             context.Heroes.Add(bane);
 
             var abilityBaneA = new Ability
@@ -202,11 +208,13 @@ namespace Dota2HeroStats.Models
                 AttackType = "Ranged",
                 Legs = 2
             };
-            puck.Roles = new HashSet<Role>();
-            puck.Roles.Add(roleI);
-            puck.Roles.Add(roleE);
-            puck.Roles.Add(roleDi);
-            puck.Roles.Add(roleN);
+            puck.Roles = new HashSet<Role>
+            {
+                roleI,
+                roleE,
+                roleDi,
+                roleN
+            };
             context.Heroes.Add(puck);
 
             var abilityPuckA = new Ability
@@ -256,11 +264,13 @@ namespace Dota2HeroStats.Models
                 AttackType = "Melee",
                 Legs = 2
             };
-            tide.Roles = new HashSet<Role>();
-            tide.Roles.Add(roleI);
-            tide.Roles.Add(roleDu);
-            tide.Roles.Add(roleDi);
-            tide.Roles.Add(roleN);
+            tide.Roles = new HashSet<Role>
+            {
+                roleI,
+                roleDu,
+                roleDi,
+                roleN
+            };
             context.Heroes.Add(tide);
 
             var abilityTideA = new Ability
@@ -310,10 +320,12 @@ namespace Dota2HeroStats.Models
                 AttackType = "Ranged",
                 Legs = 2
             };
-            tinker.Roles = new HashSet<Role>();
-            tinker.Roles.Add(roleC);
-            tinker.Roles.Add(roleN);
-            tinker.Roles.Add(roleP);
+            tinker.Roles = new HashSet<Role>
+            {
+                roleC,
+                roleN,
+                roleP
+            };
             context.Heroes.Add(tinker);
 
             var abilityTinkerA = new Ability
@@ -372,11 +384,13 @@ namespace Dota2HeroStats.Models
                 TowerDamage = 983,
             };
             p1.Hero = am;
-            p1.Abilities = new HashSet<Ability>();
-            p1.Abilities.Add(abilityAMageA);
-            p1.Abilities.Add(abilityAMageB);
-            p1.Abilities.Add(abilityAMageC);
-            p1.Abilities.Add(abilityAMageD);
+            p1.Abilities = new HashSet<Ability>
+            {
+                abilityAMageA,
+                abilityAMageB,
+                abilityAMageC,
+                abilityAMageD
+            };
             context.Players.Add(p1);
 
             var p2 = new Player
@@ -398,11 +412,13 @@ namespace Dota2HeroStats.Models
                 TowerDamage = 83,
             };
             p2.Hero = axe;
-            p2.Abilities = new HashSet<Ability>();
-            p2.Abilities.Add(abilityAxeA);
-            p2.Abilities.Add(abilityAxeB);
-            p2.Abilities.Add(abilityAxeC);
-            p2.Abilities.Add(abilityAxeD);
+            p2.Abilities = new HashSet<Ability>
+            {
+                abilityAxeA,
+                abilityAxeB,
+                abilityAxeC,
+                abilityAxeD
+            };
             context.Players.Add(p2);
 
             var p3 = new Player
@@ -424,11 +440,13 @@ namespace Dota2HeroStats.Models
                 TowerDamage = 123,
             };
             p3.Hero = tinker;
-            p3.Abilities = new HashSet<Ability>();
-            p3.Abilities.Add(abilityTinkerA);
-            p3.Abilities.Add(abilityTinkerB);
-            p3.Abilities.Add(abilityTinkerC);
-            p3.Abilities.Add(abilityTinkerD);
+            p3.Abilities = new HashSet<Ability>
+            {
+                abilityTinkerA,
+                abilityTinkerB,
+                abilityTinkerC,
+                abilityTinkerD
+            };
             context.Players.Add(p3);
 
             var p4 = new Player
@@ -450,11 +468,13 @@ namespace Dota2HeroStats.Models
                 TowerDamage = 423,
             };
             p4.Hero = tide;
-            p4.Abilities = new HashSet<Ability>();
-            p4.Abilities.Add(abilityTideA);
-            p4.Abilities.Add(abilityTideB);
-            p4.Abilities.Add(abilityTideC);
-            p4.Abilities.Add(abilityTideD);
+            p4.Abilities = new HashSet<Ability>
+            {
+                abilityTideA,
+                abilityTideB,
+                abilityTideC,
+                abilityTideD
+            };
             context.Players.Add(p4);
 
             var p5 = new Player
@@ -476,11 +496,13 @@ namespace Dota2HeroStats.Models
                 TowerDamage = 213,
             };
             p5.Hero = bane;
-            p5.Abilities = new HashSet<Ability>();
-            p5.Abilities.Add(abilityBaneA);
-            p5.Abilities.Add(abilityBaneB);
-            p5.Abilities.Add(abilityBaneC);
-            p5.Abilities.Add(abilityBaneD);
+            p5.Abilities = new HashSet<Ability>
+            {
+                abilityBaneA,
+                abilityBaneB,
+                abilityBaneC,
+                abilityBaneD
+            };
             context.Players.Add(p5);
 
             var p6 = new Player
@@ -502,11 +524,13 @@ namespace Dota2HeroStats.Models
                 TowerDamage = 429,
             };
             p6.Hero = puck;
-            p6.Abilities = new HashSet<Ability>();
-            p6.Abilities.Add(abilityPuckA);
-            p6.Abilities.Add(abilityPuckB);
-            p6.Abilities.Add(abilityPuckC);
-            p6.Abilities.Add(abilityPuckD);
+            p6.Abilities = new HashSet<Ability>
+            {
+                abilityPuckA,
+                abilityPuckB,
+                abilityPuckC,
+                abilityPuckD
+            };
             context.Players.Add(p6);
 
             var match1 = new AbilityDraftMatch
@@ -522,13 +546,15 @@ namespace Dota2HeroStats.Models
                 RadiantKillScore = 40,
                 RadiantWin = true
             };
-            match1.Players = new HashSet<Player>();
-            match1.Players.Add(p1);
-            match1.Players.Add(p2);
-            match1.Players.Add(p3);
-            match1.Players.Add(p4);
-            match1.Players.Add(p5);
-            match1.Players.Add(p6);
+            match1.Players = new HashSet<Player>
+            {
+                p1,
+                p2,
+                p3,
+                p4,
+                p5,
+                p6
+            };
 
 
             context.AbilityDraftMatches.Add(match1);
