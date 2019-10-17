@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Dota2HeroStats.Models
 {
-    public class Dota2HeroStatsDBInitializer : System.Data.Entity.DropCreateDatabaseAlways<Dota2HeroStatsDB>
+    public class Dota2HeroStatsDBInitializer : System.Data.Entity.CreateDatabaseIfNotExists<Dota2HeroStatsDB>
     {
         protected override void Seed(Dota2HeroStatsDB context)
         {
